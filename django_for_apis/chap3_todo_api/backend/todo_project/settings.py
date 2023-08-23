@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # 3rd party
     "rest_framework", 
+    "corsheaders",  
 
     # local
     "todos.apps.TodosConfig", 
@@ -59,7 +60,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    "corsheaders.middleware.CorsMiddleware",
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    "http://localhost:3000",
+    "http://localhost:8000",
+)
 
 ROOT_URLCONF = 'todo_project.urls'
 
